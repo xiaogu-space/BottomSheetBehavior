@@ -15,36 +15,6 @@
         android:layout_height="match_parent"
         android:background="@android:color/darker_gray"
         android:fitsSystemWindows="true"/>
-    <!--</FrameLayout>-->
-    <!--<fragment-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:id="@+id/support_map"-->
-    <!--android:name="com.google.android.gms.maps.SupportMapFragment"/>-->
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbarlayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:layout_behavior="@string/ScrollingAppBarLayoutBehavior">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/anchor_point"
-        android:background="@color/colorAccent"
-        app:layout_behavior="@string/BackDropBottomSheetBehavior"
-        android:fitsSystemWindows="true">
-    </android.support.v4.view.ViewPager>
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

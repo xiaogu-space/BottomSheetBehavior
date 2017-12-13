@@ -2,46 +2,28 @@ package co.com.parsoniisolutions.custombottomsheetbehavior.sample;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import co.com.parsoniisolutions.custombottomsheetbehavior.R;
 import co.com.parsoniisolutions.custombottomsheetbehavior.lib.BottomSheetBehaviorGoogleMapsLike;
-import co.com.parsoniisolutions.custombottomsheetbehavior.lib.MergedAppBarLayoutBehavior;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    int[] mDrawables = {
-            R.drawable.cheese_3,
-            R.drawable.cheese_3,
-            R.drawable.cheese_3,
-            R.drawable.cheese_3,
-            R.drawable.cheese_3,
-            R.drawable.cheese_3
-    };
-
     TextView bottomSheetTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle(" ");
-        }
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            actionBar.setTitle(" ");
+//        }
 
         /**
          * If we want to listen for states callback
@@ -78,22 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
             }
         });
-
-        AppBarLayout mergedAppBarLayout = findViewById(R.id.merged_appbarlayout);
-        MergedAppBarLayoutBehavior mergedAppBarLayoutBehavior = MergedAppBarLayoutBehavior.from(mergedAppBarLayout);
-        mergedAppBarLayoutBehavior.setToolbarTitle("Title Dummy");
-        mergedAppBarLayoutBehavior.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                behavior.setState(BottomSheetBehaviorGoogleMapsLike.STATE_COLLAPSED);
-            }
-        });
-
         bottomSheetTextView = bottomSheet.findViewById(R.id.bottom_sheet_title);
-        ItemPagerAdapter adapter = new ItemPagerAdapter(this, mDrawables);
-        ViewPager viewPager = findViewById(R.id.pager);
-        viewPager.setAdapter(adapter);
-
         behavior.setState(BottomSheetBehaviorGoogleMapsLike.STATE_ANCHOR_POINT);
     }
 }
