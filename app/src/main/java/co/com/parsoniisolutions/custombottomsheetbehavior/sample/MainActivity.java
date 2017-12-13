@@ -1,8 +1,6 @@
 package co.com.parsoniisolutions.custombottomsheetbehavior.sample;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -12,13 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import co.com.parsoniisolutions.custombottomsheetbehavior.R;
 import co.com.parsoniisolutions.custombottomsheetbehavior.lib.BottomSheetBehaviorGoogleMapsLike;
 import co.com.parsoniisolutions.custombottomsheetbehavior.lib.MergedAppBarLayoutBehavior;
-import co.com.parsoniisolutions.custombottomsheetbehavior.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -50,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * If we want to listen for states callback
          */
-        CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorlayout);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinatorlayout);
         View bottomSheet = coordinatorLayout.findViewById(R.id.bottom_sheet);
         final BottomSheetBehaviorGoogleMapsLike behavior = BottomSheetBehaviorGoogleMapsLike.from(bottomSheet);
         behavior.addBottomSheetCallback(new BottomSheetBehaviorGoogleMapsLike.BottomSheetCallback() {
@@ -83,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        AppBarLayout mergedAppBarLayout = (AppBarLayout) findViewById(R.id.merged_appbarlayout);
+        AppBarLayout mergedAppBarLayout = findViewById(R.id.merged_appbarlayout);
         MergedAppBarLayoutBehavior mergedAppBarLayoutBehavior = MergedAppBarLayoutBehavior.from(mergedAppBarLayout);
         mergedAppBarLayoutBehavior.setToolbarTitle("Title Dummy");
         mergedAppBarLayoutBehavior.setNavigationOnClickListener(new View.OnClickListener() {
@@ -93,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bottomSheetTextView = (TextView) bottomSheet.findViewById(R.id.bottom_sheet_title);
-        ItemPagerAdapter adapter = new ItemPagerAdapter(this,mDrawables);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        bottomSheetTextView = bottomSheet.findViewById(R.id.bottom_sheet_title);
+        ItemPagerAdapter adapter = new ItemPagerAdapter(this, mDrawables);
+        ViewPager viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(adapter);
 
         behavior.setState(BottomSheetBehaviorGoogleMapsLike.STATE_ANCHOR_POINT);
